@@ -1,0 +1,58 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    
+    <div class="oi-trending-topics">
+      <div class="oi-trending-topicslist">
+        <a href="#" class="butt" id="showStations">Show stations</a>
+        <a href="#" class="butt" id="hideStations">Hide stations</a>
+        <a href="#" class="butt" id="heavyStations">Heavy Rainfall </a>
+        <a href="#" class="butt" id="moderateStations">Moderate Rainfall </a>
+        <a href="#" class="butt" id="lowStations">Low Rainfall </a>
+        <a href="#" class="butt" id="statistics">statistics </a>
+        
+      </div>
+      
+    </div>
+    
+       
+    
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="#">HeatMaps</a>
+      <a href="#">Historical Data</a>
+      <a href="#">Variation of the data over Years</a>
+    </div>
+
+    <span style="font-size:30px;cursor:pointer;z-index:10000;position:absolute;top:0;left:0;background:black, !important;padding:3px" onclick="openNav()" > ☰ </span>
+      {% block content %}{% endblock %}
+
+    <!-- <div id="main" style="position:relative;width:100%;height:100%">
+    </div> -->
+    <script type="text/javascript">
+      function openNav() {
+          document.getElementById("mySidenav").style.width = "260px";
+          // document.getElementById("main").style.marginLeft = "20px";
+          document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+      }
+
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          // document.getElementById("main").style.marginLeft= "0";
+          document.body.style.backgroundColor = "#b5d0d0";
+      }
+    </script>
+    {% block footer_scripts %}{% endblock %}
+    </body>
+</html>

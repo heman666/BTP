@@ -1,0 +1,8 @@
+python 3.6.9
+Django 2.1.7
+crispy forms
+for the follwing installations checkout this link :https://www.lfd.uci.edu/~gohlke/pythonlibs/ 
+geopandas
+fiona
+GDAL 
+pyproj 

@@ -1,0 +1,18 @@
+{% extends 'map/sidenav.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+  {% block extra_head %}
+   <meta charset="utf-8">
+    <title>Map</title>
+    
+  {% endblock %}
+
+{% block content %}
+  <center>
+    <div class="map">
+      {{ map|safe }}
+    </div>
+  </center>
+{% endblock %}

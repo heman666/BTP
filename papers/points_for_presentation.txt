@@ -1,0 +1,13 @@
+a month of daily temperatures corresponding to the expected spring climatological daily
+maximum in Chennai, India, would be termed a heat wave in France; a
+snow storm expected every year in New York, USA, might initiate a
+disaster when it occurs in southern China.
+
+When the overall distribution
+of the climate variable changes, what happens to mean climate may
+be different from what happens to the extremes at either end of the
+distribution
+For example, a warmer mean climate could result from fewer cold days,
+leading to a reduction in the variance of temperatures, or more hot days,
+leading to an expansion in the variance of the temperature distribution,
+or both.

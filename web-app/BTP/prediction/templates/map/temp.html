@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Info</title>
+      <style media="screen">
+      .container{
+        width: 50%;
+        height: 50%;
+      }
+      </style>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body onload="dataset()">
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div style="margin-top:10% !important;text-align:center;">
+      <div class="table-responsive">
+        <table id="data" class="table table-bordered" bgcolor='#EFF0F0'>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Day</th>
+              <th>Rainfall(mm)</th>
+            </tr>
+        </thead>
+        </table>
+      </div>
+    </div>
+    <script>
+    function dataset(){
+      console.log("Dataset loading..........")
+      var data = window.mylist
+      console.log(JSON.stringify(data))
+      data = JSON.parse(data)
+
+      var temp1 = []
+      var temp2 = []
+      for(var i=0;i<7;i++){
+        // temp1 = {
+        //   x : i,
+        //   y : data["rainfall"][i]
+        // }
+        temp1.push(data['week_name'][i]);
+        temp2.push(data['rainfall'][i])
+      }
+
+      console.log(temp1);
+      console.log(temp2);
+      // var name = document.getElementById("lawda")
+      // name.innerHTML = data[]
+      var x = new Chart(document.getElementById("myChart"), {
+         type: 'line',
+         data: {
+           labels : temp1,
+            datasets: [{
+               label: data['name'],
+               data: temp2,
+            }]
+         },
+         options: {
+            responsive: true,
+        //     maintainAspectRatio: false,
+        //     scales: {
+        //       xAxes: [{
+        //     ticks: {
+        //         max: 6,
+        //         min: 0,
+        //         stepSize: 1
+        //     }
+        // }]
+    // }
+
+         }
+      });
+      var table = document.getElementById("data");
+      // table.innerHTML = data;
+        for(var i=0;i<7;i++){
+
+            var tr = document.createElement('tr');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+
+            var text1 = document.createTextNode(data["date"][i]);
+            var text2 = document.createTextNode(data["week_name"][i]);
+            var text3 = document.createTextNode(data["rainfall"][i]);
+
+            td1.appendChild(text1);
+            td2.appendChild(text2);
+            td3.appendChild(text3);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+
+            table.appendChild(tr)
+            // table.write("<tr>")
+            // table.write("<td>" + data[i][0] + "</td>" + "<td>" + data[i][1] + "</td>" + "<td>" + data[i][2] + "</td>")
+            // table.write("</tr>")
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  </body>
+</html>
